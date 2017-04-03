@@ -65,29 +65,31 @@
   atom-set-hide overrides default control behavior to hide element when loading, so loader image can be seen instantly. -->
 <div class="container-narrow" atom-route="/" id="main" atom-controller="com.atom.ui.loadspinner" atom-set-src="img/ajax-loader.gif" atom-set-hide="false">
         <div class="masthead">
-            <ul class="nav nav-pills pull-right">
+            <ul class="nav nav-pills">
                 <!-- place an atom-route-on regular expression to catch route changes and apply atom-class to any element. -->
-                <li atom-route-on="\/public" atom-class="active"><a href="" atom-path="/public">Home</a></li>
-                <li atom-route-on="\/about" atom-class="active"><a href="about" atom-path="true">About</a></li>
-                <li atom-route-on="\/contact" atom-class="active"><a href="contact" atom-path="true">Contact</a></li>
-                <li atom-route-on="\/admin" atom-class="active"><a href="admin" atom-path="true"><em>Admin</em></a></li>
+                <li atom-route-on="\/public" atom-class="active" ><a href="" atom-path="/public" style="background-color:#C9E7CB; color:white;">Home</a></li>
+                <li atom-route-on="\/about" atom-class="active"><a href="about" atom-path="true" style="color:#C9E7CB;">About</a></li>
+                <li atom-route-on="\/contact" atom-class="active"><a href="contact" atom-path="true" style="color:#C9E7CB;">Contact</a></li>
+                <li atom-route-on="\/admin" atom-class="active"><a href="admin" atom-path="true" style="color:#C9E7CB;"><em>Admin</em></a></li>
             </ul>
-            <h3 class="muted">atomjs.org</h3>
+            <h3 style="float:right; margin-top: -60px; color:#C9E7CB;">atomjs.org</h3>
         </div>
-
         <hr>
 
     <!-- public route, uses the atom-route-default attribute to cause a sub-navigation when navigating to root route -->
+   <h1 style="margin-right:-158px; color:#ccc; margin-left:150px;">Welcome to atomjs!!!</h1>
     <div atom-route="public" atom-route-default="true" atom-load="false">
-        <div class="jumbotron">
-            <h1>Welcome to atomjs!</h1>
+        <div class="jumbotron" style="background: rgba(76, 175, 80, 0.3); padding:20px; border:1px; border-radius: 5px; box-shadow: 10px 10px 5px #888888;">
             <p class="lead">This is an example site built with atom. It demonstrates public and private content plus navigation and error handling.</p>
-            <p class="label label-info">You'll need to configure your server to always return the bootstrap.html page for every request. This enables front routing on the client.</p>
+            <p class="label label-info">You'll need to configure your server to always return the bootstrap.html page for every request.</p> <p class="label label-info"> This enables front routing on the client.</p>
             <p>Try clicking on Admin, you'll be directed to login. To login, just click the Sign In button <em>(no credentials needed)</em>.</p>
             <p>Try entering <a href="/foobar">a url which doesn't exist</a>, you'll see the 404 template.</p>
-            <a class="btn btn-large btn-success" href="login" atom-path="true">Sign In</a>
+            <a class="btn btn-large btn-success" href="login" atom-path="true" style="margin-top:15px; box-shadow: 5px 5px 3px #888888;">Sign In</a>
         </div>
     </div>
+
+
+
 
     <!-- main container templates and controllers -->
     <div class="row-fluid marketing" atom-template="com.example.about" atom-route="about" atom-load="false"></div>
@@ -100,7 +102,7 @@
     <hr>
 
     <div class="footer">
-        <p>&copy; atomjs.org 2013</p>
+        <center> <p>&copy; atomjs.org 2013</p> </center>
     </div>
 
 </div>
