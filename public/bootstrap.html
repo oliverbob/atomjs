@@ -66,14 +66,14 @@
   atom-set-hide overrides default control behavior to hide element when loading, so loader image can be seen instantly. -->
 <div class="container-narrow" atom-route="/" id="main" atom-controller="com.atom.ui.loadspinner" atom-set-src="img/ajax-loader.gif" atom-set-hide="false">
         <div class="masthead">
-            <ul class="nav nav-pills">
+            <ul class="nav nav-pills pull-right">
                 <!-- place an atom-route-on regular expression to catch route changes and apply atom-class to any element. -->
-                <li atom-route-on="\/public" atom-class="active" ><a href="" atom-path="/public" style="background-color:#C9E7CB; color:white;">Home</a></li>
-                <li atom-route-on="\/about" atom-class="active"><a href="about" atom-path="true" style="color:#C9E7CB;">About</a></li>
-                <li atom-route-on="\/contact" atom-class="active"><a href="contact" atom-path="true" style="color:#C9E7CB;">Contact</a></li>
-                <li atom-route-on="\/admin" atom-class="active"><a href="admin" atom-path="true" style="color:#C9E7CB;"><em>Admin</em></a></li>
+                <li atom-route-on="\/public" atom-class="active" ><a href="" atom-path="/public" >Home</a></li>
+                <li atom-route-on="\/about" atom-class="active"><a href="about" atom-path="true" >About</a></li>
+                <li atom-route-on="\/contact" atom-class="active"><a href="contact" atom-path="true" >Contact</a></li>
+                <li atom-route-on="\/admin" atom-class="active"><a href="admin" atom-path="true"><em>Admin</em></a></li>
             </ul>
-            <h3 style="float:right; margin-top: -60px; color:#C9E7CB;">atomjs.org</h3>
+            <h3>atomjs.org</h3>
         </div>
         <hr>
 
