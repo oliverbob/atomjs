@@ -1,4 +1,78 @@
-<div class="span6">
+<div>
+    <h1>atomjs</h1>
+    <hr>
+    <h4>Front-end framework for SPA applications.</h4>
+    <p>atomjs is a light-weight, compact front-end library built on <a href="" style="text-decoration: none">requirejs.</a></p>
+    <p>Using a simple AMD pattern, and MVC-style separation of markup, style, and code, atomjs enables you to break your site  down into small peices and only load resources when they are actually required. Templates and style can be separated and  combined in custom combinations, and AMD controllers can be used to provide logic and reusable components.</p>
+    <p>atomjs uses event delegation and only one instance of any controller is every created, reducing memory footprint and memory leaks. Controllers can still provide per-element instance logic, though the instantiation and event binding only happens once, which saves CPU and memory and improves performance.</p>
+    <p>atomjs uses a simple mapping of component id to file system location, which makes understanding implementations easier and intuitive.</p>
+    <p>The core gzipped library is small (~8k) and currently only relies on jQuery and requirejs as dependancies.</p>
+    <p>atomjs provides a solution to loading content on demand. You are free to use any other libraries to build that content, atomjs does not impose and restrictions in that sense.</p>
+    <p>atomjs is perfect for hybrid mobile development where performance and resource modularisation is important.</p>
+    <p>Use the simple Nodejs server/app.js to run locally for testing or development purposes.</p>
+    <p><b>Run as root site.</b></p>
+    <p>To run as root site, cd to atomjs-3.0.0 folder level:</p>
+    <ul>
+        <li>node server/app -b bootstrap.html -p 3000</li>
+        <li>Hit <a href="">http://localhost:3000</a> in Chrome</li>
+    </ul>
+    <p>Tests at <a href="">http://localhost:3000/js/lib/atomjs/tests/</a></p>
+    <p><b>Run as sub site.</b></p>
+    <p>To run as sub site, cd to atomjs-3.0.0 folder level:</p>
+    <ul>
+        <li>cd public</li>
+        <li>mkdir sub</li>
+        <li>cd sub</li>
+        <li>mkdir site</li>
+        <li>cd ../../../</li>
+        <li>node server/app -b sub/site/bootstrap.html -p 3000 -s sub/site</li>
+        <li>Change atomjs-3.0.0/sub/site/js/atomjs/bootstrap.js "siteRoot" setting to '/sub/site'</li>
+        <li>Hit localhost:3000/sub/site in Chrome</li>
+    </ul>
+    <p>Tests at <a href="">http://localhost:3000/sub/site/js/lib/atomjs/tests/</a>.</p>
+    <p><b>Example application included.</b></p>
+    <p>The public folder contains an example application to demonstrate atomjs features. It is built with <a href="" style="text-decoration: none;">Twitter Bootstrap</a>.</p>
+    <ul>
+        <li>All content/components for example site are under atomjs-3.0.0/public/com/example</li>
+        <li>The entry point for the app is under atomjs-3.0.0/js/atomjs/bootstrap.js</li>
+        <li>com/example/admin.js contains an example of providing authentication by controllers to determine whether routes can be opened</li>
+    </ul>
+    <p><b>CSS urls</b></p>
+    <p>Normally urls in stylesheets are relative to the stylesheet, however if they are loaded by atom as a template or controller style, make them relative to the bootstrap file location (with no leading slashes).</p>
+    <p><b>API and development guide.</b></p>
+    <ul>
+        <li>To require the main atom functionality, just define 'atom' as one of the dependencies of your module.</li>
+        <li>Leave all src and href paths as relative to the bootstrap file, the server app will find and replace any relative urls in the initial bootstrap.html and all subsequent templates to enable you to move to sub site (It will ignore absolute paths).</li>
+        <li>You can specify a list of (space separated) controllers, templates, or styles on any elements.
+            <ul>
+                <li>Space separated templates = the templates will be loaded in parallel and the appended to the element in order from left to right.</li>
+                <li>Space separated controllers = this allows subclassing, the controllers will be loaded in parallel and override the base Control functionality from left to right. You cannot override existing abstract functions.</li>
+                <li>Space separated styles = the styles will be loaded in parallel and all stylesheets will be created.</li>
+            </ul>
+        </li>
+        <li>Current working atom attributes: 
+        <ul>
+            <li>atom-bootstrap placed anywhere on bootstrap page to allow client to identify when bootstrap is returned (ie. if expecting other content and 404 occurs)</li>
+            <li>atom-controller, atom-template, atom-style define separate template, controller, and styles.</li>
+            <li>atom-template-controller, atom-template-controller-style, atom-template-style, atom-controller-style define the same template/controller/styles in one declaration.</li>
+            <li>atom-load true|false to prevent elements from loading automatically.</li>
+            <li>atom-hide true|false to prevent elements from hiding when loading.</li>
+            <li>atom-path true|false or string of path to navigate to. Place this attribute on any clickable element such as an  tag to cause a navigation within the single page. If a path is given, this will override the href attribute if present.</li>
+            <li>atom-route defines part of the url pathway to navigate content. Each route should be a single part of the url path and the containment or route elements within route elements define to overall url.
+            <ul>
+                <li>use atom.location() to change the history url</li>
+                <li>use atom.navigate() to cause content navigation without history change</li>
+            </ul>atom-route-default true|false make an element the default content to navigate to within a navigated route without causing any change in the url history (needs to be true to take effect)</li>
+            <li>atom-route-on regex pattern to match against route navigation. If the pattern is found in the current url, the atom-class attribute value will be applied to the element (and removed if not matched)</li>
+            <li>atom-route-end true|false causes the navigation to end without travelling through the paths further. Any remaining parts of the url are converted to params in the :navigated event info</li>
+        </ul>
+        </li>
+
+    </ul>
+</div>
+
+
+<!-- <div class="span6">
     <h4>Subheading</h4>
     <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
@@ -18,4 +92,4 @@
 
     <h4>Subheading</h4>
     <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-</div>
+</div> -->
