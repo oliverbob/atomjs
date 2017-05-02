@@ -209,6 +209,10 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 
 		clearCookie: function (name) {
 			document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		},
+
+		set: function(a,b){
+			console.log(2 * atom.get('pi') * atom.get('r')); 
 		}
 	};
 
@@ -230,7 +234,9 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 		navigate: router.navigate,
 		getCookie: atom.getCookie,
 		setCookie: atom.setCookie,
-		clearCookie: atom.clearCookie
+		clearCookie: atom.clearCookie,
+		set:atom.set,
+		get:atom.get
 	};
 
 	window.atom = exports;

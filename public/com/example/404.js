@@ -2,6 +2,9 @@ define(function () {
 	"use strict";
 
 	return {
+
+		
+
 		bind: function (e) {
 			this.on('click', this.scope('[data-dismiss=alert]'), this.onDismiss);
 		},
