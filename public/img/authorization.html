@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost:3000/new_page -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>atomjs · example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="./authorization_files/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+            /* Custom container */
+        .container-narrow {
+            margin: 0 auto;
+            max-width: 700px;
+        }
+        .container-narrow > hr {
+            margin: 30px 0;
+        }
+
+            /* Main marketing message and sign up button */
+        .jumbotron {
+            margin: 60px 0;
+            text-align: center;
+        }
+        .jumbotron h1 {
+            font-size: 72px;
+            line-height: 1;
+        }
+        .jumbotron .btn {
+            font-size: 21px;
+            padding: 14px 24px;
+        }
+
+            /* Supporting marketing content */
+        .marketing {
+            margin: 60px 0;
+        }
+        .marketing p + h4 {
+            margin-top: 28px;
+        }
+        [atom-load=false] {
+            display: none;
+        }
+    </style>
+    <!-- notice href is relative to bootstrap file -->
+    <link href="./authorization_files/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- atom-bootstrap attribute let's client test for 404 when server returns bootstrap. notice data-main and src is relative to bootstrap file -->
+    <script atom-bootstrap="true" data-main="/js/lib/atomjs/bootstrap.js" src="./authorization_files/require.js"></script>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="./authorization_files/bootstrap.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="json" src="./authorization_files/json2.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="atomjs/lang" src="./authorization_files/lang.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="atomjs/url" src="./authorization_files/url.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="atomjs/dom" src="./authorization_files/dom.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="atomjs/log" src="./authorization_files/log.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="atomjs/loader" src="./authorization_files/loader.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="atomjs/control" src="./authorization_files/control.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="atomjs/router" src="./authorization_files/router.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="atom" src="./authorization_files/atom.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./authorization_files/jquery.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="history" src="./authorization_files/history.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/com/atom/ui/loadspinner.js" src="./authorization_files/loadspinner.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/com/example/admin.js" src="./authorization_files/admin.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/com/example/new_page.js" src="./authorization_files/new_page.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="text" src="./authorization_files/text.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/com/example/contact/profile.js" src="./authorization_files/profile.js"></script></head>
+
+<body>
+<!-- preload loadspinner image. src relative to bootstrap file -->
+<img src="./authorization_files/ajax-loader.gif" style="display:none">
+
+<!-- main container with root route.
+ also has a load spinner controller to catch load events and show an image.
+  atom-set-hide overrides default control behavior to hide element when loading, so loader image can be seen instantly. -->
+<div class="container-narrow" atom-route="/" id="main" atom-controller="com.atom.ui.loadspinner" atom-set-src="/img/ajax-loader.gif" atom-set-hide="false" atom-control="1" atom-init="true" atom-route-active="true">
+        <div class="masthead">
+            <ul class="nav nav-pills pull-right">
+                <!-- place an atom-route-on regular expression to catch route changes and apply atom-class to any element. -->
+                <li atom-route-on="\/public" atom-class="active" class=""><a href="http://localhost:3000/" atom-path="/public">Home</a></li>
+                <li atom-route-on="\/about" atom-class="active" class=""><a href="http://localhost:3000/about" atom-path="true">About</a></li>
+                <li atom-route-on="\/contact" atom-class="active" class=""><a href="http://localhost:3000/contact" atom-path="true">Contact</a></li>
+                <li atom-route-on="\/admin" atom-class="active"><a href="http://localhost:3000/admin" atom-path="true">Admin</a></li>
+                <li atom-route-on="\/new_page" atom-class="active" class="active"><a href="http://localhost:3000/new_page" atom-path="true">Small Tutorial</a></li>
+            </ul>
+            <h3>atomjs.org</h3>
+        </div>
+        <hr>
+
+    <!-- public route, uses the atom-route-default attribute to cause a sub-navigation when navigating to root route -->
+   <h1 style="margin-right:-158px; color:#000E3C; margin-left:150px;">Welcome to AtomJS!!!</h1>
+    <div atom-route="public" atom-route-default="true" atom-control="0" atom-route-active="true" style="display: none;">
+        <div class="jumbotron" style="background: rgba(76, 175, 80, 0.3); padding:20px; border:1px; border-radius: 5px; box-shadow: 10px 10px 5px #888888;">
+            <p class="lead">This is an example site built with atom. It demonstrates public and private content plus navigation and error handling.</p>
+            <p class="label label-info">You'll need to configure your server to always return the bootstrap.html page for every request.</p> <p class="label label-info"> This enables front routing on the client.</p>
+            <p>Try clicking on Admin, you'll be directed to login. To login, just click the Sign In button <em>(no credentials needed)</em>.</p>
+            <p>Try entering <a href="http://localhost:3000/foobar">a url which doesn't exist</a>, you'll see the 404 template.</p>
+
+            <a class="btn btn-large btn-success" href="http://localhost:3000/login" atom-path="true" style="margin-top:15px; box-shadow: 5px 5px 3px #888888;">Sign In</a>
+        </div>
+    </div>
+
+
+
+
+    <!-- main container templates and controllers -->
+    <div class="row-fluid marketing" atom-template="com.example.about" atom-route="about" atom-control="0" atom-init="true" atom-route-active="true" style="display: none;"><div>
+    <center><h1>atomjs</h1></center>
+    <hr>
+    <h4 style="background-color: #010206;color: white; border-radius: 2px 2px 2px 2px;height:30px;text-align: center;">Front-end framework for SPA applications.</h4>
+    <p>atomjs is a light-weight, compact front-end library built on <a href="http://localhost:3000/" style="text-decoration: none">requirejs.</a></p>
+    <p>Using a simple AMD pattern, and MVC-style separation of markup, style, and code, atomjs enables you to break your site  down into small peices and only load resources when they are actually required. Templates and style can be separated and  combined in custom combinations, and AMD controllers can be used to provide logic and reusable components.</p>
+    <p>atomjs uses event delegation and only one instance of any controller is every created, reducing memory footprint and memory leaks. Controllers can still provide per-element instance logic, though the instantiation and event binding only happens once, which saves CPU and memory and improves performance.</p>
+    <p>atomjs uses a simple mapping of component id to file system location, which makes understanding implementations easier and intuitive.</p>
+    <p>The core gzipped library is small (~8k) and currently only relies on jQuery and requirejs as dependancies.</p>
+    <p>atomjs provides a solution to loading content on demand. You are free to use any other libraries to build that content, atomjs does not impose and restrictions in that sense.</p>
+    <p>atomjs is perfect for hybrid mobile development where performance and resource modularisation is important.</p>
+    <p>Use the simple Nodejs server/app.js to run locally for testing or development purposes.</p>
+    <p style="background-color: #010206;color: white; border-radius: 2px 2px 2px 2px;height:20px;text-align: center;"><b>Run as root site.</b></p>
+    <p>To run as root site, cd to atomjs-3.0.0 folder level:</p>
+    <ul>
+        <li>node server/app -b bootstrap.html -p 3000</li>
+        <li>Hit <a href="http://localhost:3000/">http://localhost:3000</a> in Chrome</li>
+    </ul>
+    <p>Tests at <a href="http://localhost:3000/">http://localhost:3000/js/lib/atomjs/tests/</a></p>
+    <p style="background-color: #010206;color: white; border-radius: 2px 2px 2px 2px;height:20px;text-align: center;"><b>Run as sub site.</b></p>
+    <p>To run as sub site, cd to atomjs-3.0.0 folder level:</p>
+    <ul>
+        <li>cd public</li>
+        <li>mkdir sub</li>
+        <li>cd sub</li>
+        <li>mkdir site</li>
+        <li>cd ../../../</li>
+        <li>node server/app -b sub/site/bootstrap.html -p 3000 -s sub/site</li>
+        <li>Change atomjs-3.0.0/sub/site/js/atomjs/bootstrap.js "siteRoot" setting to '/sub/site'</li>
+        <li>Hit localhost:3000/sub/site in Chrome</li>
+    </ul>
+    <p>Tests at <a href="http://localhost:3000/">http://localhost:3000/sub/site/js/lib/atomjs/tests/</a>.</p>
+    <p style="background-color: #010206;color: white; border-radius: 2px 2px 2px 2px;height:20px;text-align: center;"><b>Example application included.</b></p>
+    <p>The public folder contains an example application to demonstrate atomjs features. It is built with <a href="http://localhost:3000/" style="text-decoration: none;">Twitter Bootstrap</a>.</p>
+    <ul>
+        <li>All content/components for example site are under atomjs-3.0.0/public/com/example</li>
+        <li>The entry point for the app is under atomjs-3.0.0/js/atomjs/bootstrap.js</li>
+        <li>com/example/admin.js contains an example of providing authentication by controllers to determine whether routes can be opened</li>
+    </ul>
+    <p style="background-color: #010206;color: white; border-radius: 2px 2px 2px 2px;height:20px;text-align: center;"><b>CSS urls</b></p>
+    <p>Normally urls in stylesheets are relative to the stylesheet, however if they are loaded by atom as a template or controller style, make them relative to the bootstrap file location (with no leading slashes).</p>
+    <p style="background-color: #010206;color: white; border-radius: 2px 2px 2px 2px;height:20px;text-align: center;"><b>API and development guide.</b></p>
+    <ul>
+        <li>To require the main atom functionality, just define 'atom' as one of the dependencies of your module.</li>
+        <li>Leave all src and href paths as relative to the bootstrap file, the server app will find and replace any relative urls in the initial bootstrap.html and all subsequent templates to enable you to move to sub site (It will ignore absolute paths).</li>
+        <li>You can specify a list of (space separated) controllers, templates, or styles on any elements.
+            <ul>
+                <li>Space separated templates = the templates will be loaded in parallel and the appended to the element in order from left to right.</li>
+                <li>Space separated controllers = this allows subclassing, the controllers will be loaded in parallel and override the base Control functionality from left to right. You cannot override existing abstract functions.</li>
+                <li>Space separated styles = the styles will be loaded in parallel and all stylesheets will be created.</li>
+            </ul>
+        </li>
+        <li>Current working atom attributes: 
+        <ul>
+            <li>atom-bootstrap placed anywhere on bootstrap page to allow client to identify when bootstrap is returned (ie. if expecting other content and 404 occurs)</li>
+            <li>atom-controller, atom-template, atom-style define separate template, controller, and styles.</li>
+            <li>atom-template-controller, atom-template-controller-style, atom-template-style, atom-controller-style define the same template/controller/styles in one declaration.</li>
+            <li>atom-load true|false to prevent elements from loading automatically.</li>
+            <li>atom-hide true|false to prevent elements from hiding when loading.</li>
+            <li>atom-path true|false or string of path to navigate to. Place this attribute on any clickable element such as an  tag to cause a navigation within the single page. If a path is given, this will override the href attribute if present.</li>
+            <li>atom-route defines part of the url pathway to navigate content. Each route should be a single part of the url path and the containment or route elements within route elements define to overall url.
+            <ul>
+                <li>use atom.location() to change the history url</li>
+                <li>use atom.navigate() to cause content navigation without history change</li>
+            </ul>atom-route-default true|false make an element the default content to navigate to within a navigated route without causing any change in the url history (needs to be true to take effect)</li>
+            <li>atom-route-on regex pattern to match against route navigation. If the pattern is found in the current url, the atom-class attribute value will be applied to the element (and removed if not matched)</li>
+            <li>atom-route-end true|false causes the navigation to end without travelling through the paths further. Any remaining parts of the url are converted to params in the :navigated event info</li>
+        </ul>
+        </li>
+
+    </ul>
+</div>
+
+
+<!-- <div class="span6">
+    <h4>Subheading</h4>
+    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+    <h4>Subheading</h4>
+    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+    <h4>Subheading</h4>
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+</div>
+
+<div class="span6">
+    <h4>Subheading</h4>
+    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+    <h4>Subheading</h4>
+    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+    <h4>Subheading</h4>
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+</div> --></div>
+    <div class="row-fluid marketing" atom-template="com.example.contact" atom-route="contact" atom-control="0" atom-init="true" atom-route-active="true" style="display: none;"><ul class="nav nav-tabs" id="myTab">
+    <li atom-route-on="\/profile" atom-class="active" class=""><a href="http://localhost:3000/contact" atom-path="contact/profile">Profile</a></li>
+    <li atom-route-on="\/messages" atom-class="active"><a href="http://localhost:3000/contact" atom-path="contact/messages">Messages</a></li>
+    <li atom-route-on="\/settings" atom-class="active"><a href="http://localhost:3000/contact" atom-path="contact/settings">Settings</a></li>
+</ul>
+
+<div class="tab-content">
+    <div atom-route="profile" atom-route-default="true" class="tab-pane" atom-control="4" atom-controller="com.example.contact.profile" atom-template="com.example.contact.profile" atom-init="true" atom-route-active="true" style="display: none;"><div><h4>Profile Content Heading</h4>
+
+<!-- create a fragment which has databinding information, when the fragments are created (atom.create) the databinding must be called to refresh dom (atom.dataBind) -->
+
+
+<p><span class="label">est</span>250% <span class="label label-success">ship</span>
+    308%</p>
+
+<!-- this is the container the models will go into - see profile.js -->
+<div id="profiles-container"><tr atom-fragment="com.example.fragments.profile" atom-model="com.example.models.profile" atom-model-id="1" class="label label-info"><td atom-model-key="name">Profile 1 Name</td><td atom-model-key="description">this is profile 1 description (it has extra css class values)</td><td></td><td class="center"></td><td class="center"></td></tr><tr atom-fragment="com.example.fragments.profile" atom-model="com.example.models.profile" atom-model-id="2"><td atom-model-key="name">Profile 2 Name</td><td atom-model-key="description">this is profile 2 description</td><td></td><td class="center"></td><td class="center"></td></tr><tr atom-fragment="com.example.fragments.profile" atom-model="com.example.models.profile" atom-model-id="3"><td atom-model-key="name">Profile 3 Name</td><td atom-model-key="description">this is profile 3 description</td><td></td><td class="center"></td><td class="center"></td></tr></div>
+
+<small>Type to update profile descriptions...</small><br>
+<input type="text"></div></div>
+    <div id="test" atom-template="com.example.contact.test" atom-control="0" atom-init="true" style="display: block;"><p>This test template loaded as part of the route!</p></div>
+    <div atom-route="messages" atom-template="com.example.contact.messages" class="tab-pane" atom-load="false"></div>
+    <div atom-route="settings" atom-template="com.example.contact.settings" class="tab-pane" atom-load="false"></div>
+</div></div>
+    <div class="row-fluid" atom-template-controller="com.example.login" atom-route="login" atom-load="false"></div>
+    <div class="row-fluid" atom-template-controller="com.example.admin" atom-route="admin" atom-hide="false" atom-control="2" atom-load="false"></div>
+    <div class="row-fluid" atom-route="new_page" atom-control="3" atom-controller="com.example.new_page" atom-template="com.example.new_page" atom-init="true" atom-route-active="true" style="display: block;"><br><br><br>
+<center><h1 style="background-color: #010206;color: white; border-radius: 2px 2px 2px 2px;height:50px">How to Create New Page</h1></center>
+<p class="lead">This is a sample page.</p>
+<p>The idea here is that it launches to a new page when a link is clicked. All codes for this functionality is located only in bootstrap.html file.</p>
+<h4>These are variables coming from new_page.js:</h4>
+<div id="results" style="color: #2F0A0A">Caren --&gt; Ghiljoe --&gt; Valerie --&gt; </div> </div>
+
+    <div id="404"></div>
+
+    <hr>
+
+    <div class="footer">
+        <center> <p>© atomjs.org 2013</p> </center>
+    </div>
+
+<img src="./authorization_files/ajax-loader.gif" class="loader" style="display: none;"></div>
+
+
+
+</body></html>

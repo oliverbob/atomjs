@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>atomjs &middot; example</title>
+    <title >atomjs &middot; example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -29,6 +29,15 @@
         .jumbotron {
             margin: 60px 0;
             text-align: center;
+            min-width: 150px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            background-image: url('/img/Note.svg'); 
+            background-repeat: no-repeat;
+            height: 500px;
         }
         .jumbotron h1 {
             font-size: 72px;
@@ -46,6 +55,48 @@
         .marketing p + h4 {
             margin-top: 28px;
         }
+        .header img {
+          float: left;
+          width: 100px;
+          height: 100px;
+          
+        }
+
+        .list{
+
+            color: #B8BCC4;
+        }
+        .lead{
+
+            background-color: #409736;
+            opacity: 0.8;
+            filter: alpha(opacity=60);
+            color: black;
+            border-radius: 5px 5px 5px 5px;
+
+        }
+        .lead2{
+
+            background-color: #409736;
+            opacity: 0.8;
+            filter: alpha(opacity=60);
+            color: black;
+            font-size: 16px;
+            border-radius: 2px 2px 2px 2px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+        }
+
+        .header h1 {
+          position: relative;
+          top: 18px;
+          left: 10px;
+        }
+
+
         [atom-load=false] {
             display: none;
         }
@@ -65,29 +116,32 @@
  also has a load spinner controller to catch load events and show an image.
   atom-set-hide overrides default control behavior to hide element when loading, so loader image can be seen instantly. -->
 <div class="container-narrow" atom-route="/" id="main" atom-controller="com.atom.ui.loadspinner" atom-set-src="img/ajax-loader.gif" atom-set-hide="false">
-        <div class="masthead">
-            <ul class="nav nav-pills pull-right">
+        <div class="masthead" style="background-color: #1D1F23;border-radius:2px 2px 2px 2px">
+            <ul class="nav nav-pills pull-right" >
                 <!-- place an atom-route-on regular expression to catch route changes and apply atom-class to any element. -->
-                <li atom-route-on="\/public" atom-class="active" ><a href="" atom-path="/public" >Home</a></li>
-                <li atom-route-on="\/about" atom-class="active"><a href="about" atom-path="true" >About</a></li>
-                <li atom-route-on="\/contact" atom-class="active"><a href="contact" atom-path="true" >Contact</a></li>
-                <li atom-route-on="\/admin" atom-class="active"><a href="admin" atom-path="true">Admin</a></li>
-                <li atom-route-on="\/new_page" atom-class="active"><a href="new_page" atom-path="true">Small Tutorial</a></li>
+                <li class="list" atom-route-on="\/public" atom-class="active" ><a href="" atom-path="/public" >Home</a></li>
+                <li class="list" atom-route-on="\/about" atom-class="active"><a href="about" atom-path="true" >About</a></li>
+                <li class="list" atom-route-on="\/contact" atom-class="active"><a href="contact" atom-path="true" >Contact</a></li>
+                <li class="list" atom-route-on="\/admin" atom-class="active"><a href="admin" atom-path="true">Admin</a></li>
+                <li class="list" atom-route-on="\/new_page" atom-class="active"><a href="new_page" atom-path="true">Small Tutorial</a></li>
             </ul>
-            <h3>atomjs.org</h3>
+            <h3 style="color:#B8BCC4;margin-left: 10px;font-style: oblique;">atomjs.org</h3>
         </div>
         <hr>
 
     <!-- public route, uses the atom-route-default attribute to cause a sub-navigation when navigating to root route -->
-   <h1 style="margin-right:-158px; color:#000E3C; margin-left:150px;">Welcome to AtomJS!!!</h1>
+    <div class="header">
+      <img src="/img/atomjs-logo.png" alt="logo" />
+      <h1 style="color:#000E3C">Welcome to AtomJS!</h1>
+    </div>
+    <br><br>
     <div atom-route="public" atom-route-default="true" atom-load="false">
-        <div class="jumbotron" style="background: rgba(76, 175, 80, 0.3); padding:20px; border:1px; border-radius: 5px; box-shadow: 10px 10px 5px #888888;">
-            <p class="lead">This is an example site built with atom. It demonstrates public and private content plus navigation and error handling.</p>
-            <p class="label label-info">You'll need to configure your server to always return the bootstrap.html page for every request.</p> <p class="label label-info"> This enables front routing on the client.</p>
-            <p>Try clicking on Admin, you'll be directed to login. To login, just click the Sign In button <em>(no credentials needed)</em>.</p>
-            <p>Try entering <a href="/foobar">a url which doesn't exist</a>, you'll see the 404 template.</p>
-
-            <a class="btn btn-large btn-success" href="login" atom-path="true" style="margin-top:15px; box-shadow: 5px 5px 3px #888888;">Sign In</a>
+        <div class="jumbotron" style=" padding:20px; border:1px; border-radius: 5px; box-shadow: 10px 10px 5px #888888;">
+            <div class="lead">
+                <p>This is an example site built with atom. It demonstrates public and private content plus navigation and error handling.You'll need to configure your server to always return the bootstrap.html page for every request. This enables front routing on the client. Try entering <a href="/foobar" style="color:#2F5279">a url which doesn't exist</a>, you'll see the 404 template. Try clicking on Admin, you'll be directed to login. To login, just click the Sign In button <em>(no credentials needed)</em>.</p>
+                <a class="btn btn-large btn-primary" href="login" atom-path="true">Sign In</a>
+                <hr>
+            </div>
         </div>
     </div>
 

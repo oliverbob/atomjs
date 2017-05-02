@@ -55,6 +55,10 @@
 					}
 				});
 
+				atom.set({
+					a:3.141592653,
+					b:5
+	    		});
 			});
 
 		atom.init(function() {
